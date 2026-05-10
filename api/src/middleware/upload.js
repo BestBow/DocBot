@@ -1,38 +1,26 @@
-const multer = require('multer');
-const path   = require('path');
-const fs     = require('fs');
+function errorHandler(err, _req, res, _next) {
+  console.error(err);
 
-const UPLOAD_DIR = path.join(__dirname, '../../uploads');
-if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
-
-const ALLOWED_TYPES = {
-  'application/pdf':                                                          'pdf',
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document': 'docx',
-  'text/plain':                                                               'txt',
-};
-
-const storage = multer.diskStorage({
-  destination: (_req, _file, cb) => cb(null, UPLOAD_DIR),
-  filename:    (_req, file, cb) => {
-    const unique = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-    cb(null, `${unique}${path.extname(file.originalname)}`);
-  },
-});
-
-const fileFilter = (_req, file, cb) => {
-  if (ALLOWED_TYPES[file.mimetype]) {
-    cb(null, true);
-  } else {
-    cb(new Error('Only PDF, Word (.docx), and plain text files are allowed'), false);
+  // Multer file size error
+  if (err.code === 'LIMIT_FILE_SIZE') {
+    return res.status(400).json({
+      error: `File too large. Maximum size is ${process.env.MAX_FILE_SIZE_MB || 10}MB`,
+    });
   }
-};
 
-const MAX_MB = parseInt(process.env.MAX_FILE_SIZE_MB || '10');
+  // Multer file type error (thrown in fileFilter)
+  if (err.message && err.message.includes('Only PDF')) {
+    return res.status(400).json({ error: err.message });
+  }
 
-const upload = multer({
-  storage,
-  fileFilter,
-  limits: { fileSize: MAX_MB * 1024 * 1024 },
-});
+  // Any other multer error
+  if (err.storageErrors !== undefined) {
+    return res.status(400).json({ error: err.message || 'File upload error' });
+  }
 
-module.exports = { upload, ALLOWED_TYPES, UPLOAD_DIR };
+  res.status(err.status || 500).json({
+    error: err.message || 'Internal server error',
+  });
+}
+
+module.exports = errorHandler;
