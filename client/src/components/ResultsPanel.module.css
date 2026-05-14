@@ -1,0 +1,56 @@
+.panel { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+.docHeader { padding: 0 20px 12px; }
+.docHeaderRow { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.metaRow { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+.dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+.metaTag { font-size: 10px; color: #3a4455; letter-spacing: 0.08em; }
+.sep { font-size: 10px; color: #2a3545; }
+.docTitle { font-size: 22px; font-weight: 500; color: #e8eaed; margin-bottom: 4px; }
+.docSub { font-size: 12px; color: #4a5568; }
+.modelName { color: #3a8fa8; font-size: 11px; }
+.actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.expBtn { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #8892a4; background: #141820; border: 0.5px solid #1e2227; border-radius: 5px; padding: 5px 10px; cursor: pointer; transition: all 0.12s; }
+.expBtn:hover { border-color: #2a3545; color: #c8d0dc; }
+.deleteBtn { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; color: #4a5568; background: #141820; border: 0.5px solid #1e2227; border-radius: 5px; cursor: pointer; transition: all 0.12s; }
+.deleteBtn:hover { color: #e24b4a; border-color: #4a1f1f; background: #1a0f0f; }
+.statsRow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 0 20px 16px; }
+.statCard { background: #141820; border: 0.5px solid #1e2227; border-radius: 6px; padding: 12px 14px; }
+.statLabel { font-size: 10px; color: #3a4455; letter-spacing: 0.1em; margin-bottom: 6px; }
+.statValue { font-size: 20px; font-weight: 500; color: #e8eaed; }
+.tabBar { display: flex; padding: 0 20px; border-bottom: 0.5px solid #1e2227; margin-bottom: 0; }
+.tab { font-size: 13px; padding: 8px 16px; color: #4a5568; border-bottom: 1.5px solid transparent; margin-bottom: -0.5px; background: none; transition: color 0.12s; }
+.tab:hover:not(.active) { color: #8892a4; }
+.tab.active { color: #e8eaed; border-bottom-color: #3a8fa8; }
+.content { flex: 1; overflow-y: auto; padding: 16px 20px; }
+.twoCol { display: grid; grid-template-columns: 1fr 240px; gap: 12px; }
+.summaryCard, .entitiesCard { background: #141820; border: 0.5px solid #1e2227; border-radius: 8px; padding: 16px; }
+.secLabel { font-size: 10px; color: #3a4455; letter-spacing: 0.1em; margin-bottom: 10px; }
+.summaryHeadline { font-size: 16px; font-weight: 500; color: #e8eaed; line-height: 1.5; margin-bottom: 10px; }
+.keyPointsLabel { font-size: 10px; color: #3a4455; letter-spacing: 0.1em; margin: 14px 0 8px; }
+.kpRow { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+.kpDot { width: 5px; height: 5px; border-radius: 50%; background: #3a8fa8; margin-top: 6px; flex-shrink: 0; }
+.kpText { font-size: 12px; color: #8892a4; line-height: 1.5; }
+.entityGroup { margin-bottom: 12px; }
+.entityType { font-size: 10px; color: #3a4455; letter-spacing: 0.08em; margin-bottom: 5px; text-transform: capitalize; }
+.entityRow { display: flex; align-items: center; gap: 7px; margin-bottom: 4px; }
+.entityVal { font-size: 12px; color: #8892a4; }
+.actionTable { background: #141820; border: 0.5px solid #1e2227; border-radius: 8px; overflow: hidden; }
+.actionHeader { display: grid; grid-template-columns: 140px 1fr 120px 80px; gap: 8px; padding: 8px 14px; border-bottom: 0.5px solid #1e2227; font-size: 10px; color: #3a4455; letter-spacing: 0.08em; }
+.actionRow { display: grid; grid-template-columns: 140px 1fr 120px 80px; gap: 8px; padding: 10px 14px; border-bottom: 0.5px solid #1e2227; align-items: center; transition: background 0.1s; }
+.actionRow:last-child { border-bottom: none; }
+.actionRow:hover { background: #0e1a24; }
+.actionWho { font-size: 12px; font-weight: 500; color: #c8d0dc; }
+.actionWhat { font-size: 12px; color: #8892a4; }
+.actionWhen { font-size: 12px; color: #4a5568; }
+.priority { font-size: 11px; padding: 2px 7px; border-radius: 3px; font-weight: 500; text-align: center; }
+.priHigh { background: #2e0f0f; color: #e24b4a; }
+.priMed  { background: #2e1e08; color: #EF9F27; }
+.priLow  { background: #1a2e14; color: #639922; }
+.empty { padding: 24px; text-align: center; font-size: 13px; color: #3a4455; }
+.entitiesGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+.entityCard { background: #141820; border: 0.5px solid #1e2227; border-radius: 7px; padding: 12px; }
+.entityCardLabel { font-size: 10px; color: #3a4455; letter-spacing: 0.08em; margin-bottom: 8px; text-transform: capitalize; }
+.entityTags { display: flex; flex-wrap: wrap; gap: 5px; }
+.entityTag { font-size: 11px; padding: 2px 8px; border-radius: 3px; background: #0e1a24; border: 0.5px solid #1a5a72; color: #3a8fa8; }
+.rawText { background: #141820; border: 0.5px solid #1e2227; border-radius: 8px; padding: 16px; }
+.rawPre { font-size: 11px; color: #4a5568; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }

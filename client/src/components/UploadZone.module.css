@@ -1,0 +1,9 @@
+.zone { display: flex; align-items: center; gap: 14px; margin: 12px 20px; background: #141820; border: 1px dashed #1e2227; border-radius: 8px; padding: 14px 16px; cursor: pointer; transition: border-color 0.15s; }
+.zone:hover, .zone.active { border-color: #2a3545; }
+.zone.disabled { opacity: 0.5; cursor: not-allowed; }
+.iconBox { width: 36px; height: 36px; background: #0e1a24; border: 0.5px solid #1a5a72; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.main { font-size: 13px; color: #8892a4; }
+.link { color: #3a8fa8; }
+.sub { font-size: 11px; color: #3a4455; }
+.kbd { font-size: 11px; color: #3a4455; background: #0d0f11; border: 0.5px solid #1e2227; border-radius: 3px; padding: 2px 6px; font-family: 'Geist Mono', monospace; }

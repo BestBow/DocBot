@@ -1,0 +1,9 @@
+.wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 14px; padding: 60px; animation: fadeIn 0.2s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.spinner { width: 32px; height: 32px; border: 2px solid #1e2227; border-top-color: #3a8fa8; border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.filename { font-size: 13px; color: #3a8fa8; font-family: 'Geist Mono', monospace; }
+.step { font-size: 13px; color: #4a5568; }
+.steps { display: flex; gap: 6px; margin-top: 4px; }
+.stepDot { width: 6px; height: 6px; border-radius: 50%; background: #1e2227; transition: background 0.3s; }
+.stepDot.done { background: #3a8fa8; }
